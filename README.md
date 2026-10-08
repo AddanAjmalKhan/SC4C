@@ -9,7 +9,7 @@ Four responsive, red-themed client review designs. The original logo and photogr
 | 3 · Dispatch | `variation-3-dispatch.html` | `/variation-3-dispatch` |
 | 4 · Fresh Start (previous homepage) | `variation-4.html` | `/variation-4` |
 
-Each footer includes links to all four options. The previous Night Shift URL redirects to the homepage. The original logo colours are preserved; page accents, buttons and brand surfaces use red. Headings are approximately 12–15% smaller in the first three designs, with body type and related spacing reduced more gently. Variation 4 has a smaller adjustment to its already compact layout. Form fields stay at 16px for mobile usability.
+A floating “Designs” toggle in the bottom-right corner of every page opens a switcher linking all four options (keyboard: `[` and `]` flip between designs). The previous Night Shift URL redirects to the homepage. The original logo colours are preserved; page accents, buttons and brand surfaces use red. Headings are approximately 12–15% smaller in the first three designs, with body type and related spacing reduced more gently. Variation 4 has a smaller adjustment to its already compact layout. Form fields stay at 16px for mobile usability.
 
 ## Preview locally
 
@@ -38,7 +38,8 @@ The first three designs prepare a WhatsApp message using the entered vehicle det
 
 - The first three designs keep their original embedded styles and scripts.
 - `assets/variation-4.css` and `assets/variation-4.js` support the previous homepage.
-- `assets/review.css` contains the shared review links and final colour/accessibility refinements.
+- `assets/switcher.css` and `assets/switcher.js` provide the shared bottom-right design switcher on all four pages.
+- `assets/review.css` contains final colour/accessibility refinements.
 - `scripts/build.cjs` generates the deployable `dist/` directory.
 - `scripts/preview.cjs` serves the build with clean URL support.
 - `scripts/qa.cjs` checks the four designs at desktop, laptop and mobile widths. Use an installed Playwright package (`PLAYWRIGHT_PATH` can point to it) and Chrome; run the preview server first, then `npm test`.
