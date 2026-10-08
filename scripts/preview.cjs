@@ -4,7 +4,7 @@ const path = require('node:path');
 require('./build.cjs');
 const root = path.resolve(__dirname, '../dist');
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.png': 'image/png' };
-const publicFiles = new Set(['index.html', 'variation-2-editorial.html', 'variation-3-dispatch.html', 'variation-4.html', 'assets/review.css', 'assets/variation-4.css', 'assets/variation-4.js']);
+const publicFiles = new Set(['index.html', 'variation-2-editorial.html', 'variation-3-dispatch.html', 'variation-4.html', 'assets/review.css', 'assets/variation-4.css', 'assets/variation-4.js', 'assets/switcher.css', 'assets/switcher.js']);
 http.createServer((req, res) => {
   let name;
   try { name = decodeURIComponent(new URL(req.url, 'http://localhost').pathname).replace(/^\/+/, '') || 'index.html'; }
