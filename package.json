@@ -1,0 +1,10 @@
+{
+  "name": "scrap-cars-4-cash-designs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "dev": "node scripts/preview.cjs",
+    "test": "node scripts/qa.cjs"
+  }
+}
