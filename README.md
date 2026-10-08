@@ -1,4 +1,4 @@
-# Scrap Cars 4 Cash — four homepage designs
+# Scrap Cars 4 Cash — four homepage designs 
 
 Four responsive, red-themed client review designs. The original logo and photographic URLs remain on scrapcars4cash.ca. No changes were made to the live website.
 
