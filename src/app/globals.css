@@ -270,6 +270,28 @@ select {
   }
 }
 
+@keyframes ping {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes hq-ping {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(5);
+  }
+}
+
 @keyframes ico-ping {
   from {
     transform: scale(1);

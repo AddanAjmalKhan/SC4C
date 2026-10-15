@@ -28,7 +28,7 @@ export function MobileStickyBar() {
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 border-l border-ink/10 bg-navy py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white"
       >
-        <span className="relative flex h-4 w-4 items-center justify-center rounded-full" style={{ animation: "pulse 2.2s infinite" }}>
+        <span className="relative flex h-4 w-4 items-center justify-center" style={{ animation: "pulse 2.2s infinite" }}>
           <Icon name="whatsapp" className="h-4 w-4" />
         </span>
         WhatsApp

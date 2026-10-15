@@ -1,133 +1,136 @@
-const REGIONS: { name: string; x: number; y: number; w: number; h: number; labelX?: number; labelY?: number; small?: boolean }[] = [
-  { name: "Burlington", x: 40, y: 480, w: 110, h: 80 },
-  { name: "Oakville", x: 150, y: 420, w: 110, h: 100 },
-  { name: "Mississauga", x: 190, y: 330, w: 170, h: 130 },
-  { name: "Brampton", x: 180, y: 190, w: 160, h: 140 },
-  { name: "Etobicoke", x: 330, y: 400, w: 110, h: 100, small: true },
-  { name: "Vaughan", x: 340, y: 210, w: 140, h: 150 },
-  { name: "North York", x: 440, y: 300, w: 120, h: 120, small: true },
-  { name: "Richmond Hill", x: 440, y: 150, w: 100, h: 110, small: true },
-  { name: "Markham", x: 540, y: 170, w: 140, h: 150 },
-  { name: "Toronto", x: 440, y: 420, w: 100, h: 80, small: true },
-  { name: "East York", x: 540, y: 390, w: 60, h: 60, small: true },
-  { name: "Downtown Toronto", x: 470, y: 500, w: 90, h: 40, small: true, labelY: 4 },
-  { name: "Scarborough", x: 600, y: 290, w: 200, h: 170 },
-];
+"use client";
 
-const DOTS: { name: string; x: number; y: number; labelPos?: "left" | "right" }[] = [
-  { name: "Bolton", x: 150, y: 150 },
-  { name: "Aurora", x: 480, y: 90 },
-  { name: "Newmarket", x: 490, y: 40 },
-  { name: "Pickering", x: 830, y: 280 },
-  { name: "Ajax", x: 880, y: 270 },
-  { name: "Whitby", x: 930, y: 230 },
-  { name: "Oshawa", x: 980, y: 210, labelPos: "left" },
-];
+const PINS: Record<string, [number, number]> = {
+  Toronto: [310, 212],
+  Mississauga: [180, 240],
+  Brampton: [120, 174],
+  Vaughan: [245, 122],
+  Markham: [330, 113],
+  "Richmond Hill": [282, 98],
+  "North York": [295, 160],
+  Etobicoke: [218, 214],
+  Scarborough: [385, 155],
+  Oakville: [150, 300],
+  Burlington: [96, 352],
+  Ajax: [488, 112],
+  Pickering: [452, 130],
+  Whitby: [528, 98],
+  Oshawa: [566, 84],
+  Aurora: [262, 50],
+  Newmarket: [272, 24],
+  Bolton: [136, 104],
+  "Downtown Toronto": [320, 224],
+};
 
-const HIGHWAYS: { label: string; d: string; lx: number; ly: number; rotate?: number }[] = [
-  { label: "401", d: "M60 440 L950 400", lx: 130, ly: 455 },
-  { label: "400", d: "M415 40 L415 440", lx: 430, ly: 150, rotate: -90 },
-  { label: "404", d: "M505 60 L505 420", lx: 520, ly: 100, rotate: -90 },
-  { label: "427", d: "M405 440 L370 600", lx: 395, ly: 530, rotate: -74 },
-  { label: "QEW", d: "M95 560 L345 455", lx: 140, ly: 580, rotate: -18 },
-];
+const LEFT = new Set(["Brampton", "Bolton", "Burlington", "Oakville", "Mississauga", "Etobicoke", "Vaughan", "Oshawa", "Toronto"]);
 
-export function ServiceAreaMap() {
+export const cityNames = Object.keys(PINS);
+
+export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | null; onHoverCity: (city: string | null) => void }) {
   return (
-    <svg viewBox="0 0 1040 660" className="h-full w-full" role="img" aria-label="Stylized map of Scrap Cars 4 Cash service areas across the GTA">
-      <defs>
-        <radialGradient id="map-sw" cx="0" cy="0" r="1" gradientTransform="translate(520 330) scale(520)">
-          <stop offset="0" stopColor="var(--color-amber)" stopOpacity="0.08" />
-          <stop offset="1" stopColor="var(--color-amber)" stopOpacity="0" />
-        </radialGradient>
-      </defs>
+    <>
+      <div
+        aria-hidden="true"
+        className="absolute left-3.5 top-3 z-[2] font-mono text-xs tracking-[0.1em] text-amber"
+      >
+        GTA DISPATCH · <b className="text-white">UNITS ACTIVE</b>
+      </div>
+      <svg
+        viewBox="0 0 600 400"
+        role="img"
+        aria-label="Stylized dispatch map of Scrap Cars 4 Cash service cities across the GTA"
+        className="relative block h-full w-full"
+      >
+        <defs>
+          <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#0D3F82" />
+            <stop offset="1" stopColor="#071F40" />
+          </linearGradient>
+          <radialGradient id="sw" cx="0" cy="0" r="1">
+            <stop offset="0" stopColor="#F2A93B" stopOpacity="0.35" />
+            <stop offset="1" stopColor="#F2A93B" stopOpacity="0" />
+          </radialGradient>
+        </defs>
 
-      <rect x="0" y="0" width="1040" height="660" fill="url(#map-sw)" />
+        <path
+          d="M60 400 L100 378 L160 326 L200 268 L255 236 L310 230 L360 214 L405 196 L455 158 L492 142 L532 132 L600 118 L600 400 Z"
+          fill="url(#lake)"
+          stroke="#F2A93B"
+          strokeWidth="2"
+          strokeDasharray="6 5"
+        />
+        <text x="470" y="300" fontFamily="var(--font-mono)" fontSize="12" fill="#6f8ec2" letterSpacing="3">
+          LAKE ONTARIO
+        </text>
 
-      {/* highways */}
-      {HIGHWAYS.map((hwy) => (
-        <g key={hwy.label}>
-          <path d={hwy.d} fill="none" stroke="#3a4454" strokeWidth="2" strokeDasharray="1 7" strokeLinecap="round" />
-          <text
-            x={hwy.lx}
-            y={hwy.ly}
-            fill="#5b6778"
-            fontFamily="var(--font-mono)"
-            fontSize="12"
-            letterSpacing="1"
-            transform={hwy.rotate ? `rotate(${hwy.rotate} ${hwy.lx} ${hwy.ly})` : undefined}
-          >
-            {hwy.label}
+        <g fill="none" stroke="#3b6bb0" strokeWidth="3" opacity="0.7">
+          <path d="M100 210 C180 190 260 165 300 160 S440 150 600 112" />
+          <path d="M120 300 C180 270 240 245 310 228" />
+          <path d="M250 400 L262 260 L265 0" />
+          <path d="M330 0 L322 160" />
+        </g>
+        <g fill="none" stroke="#5a86c7" strokeWidth="1" strokeDasharray="3 4" opacity="0.6">
+          <path d="M120 174 L225 165 L295 160" />
+          <path d="M225 165 L245 122 L270 22" />
+          <path d="M225 165 L180 240 L100 362" />
+        </g>
+
+        <g style={{ transformOrigin: "225px 165px", animation: "spin-slow 6s linear infinite" }}>
+          <path d="M225 165 L225 15 A150 150 0 0 1 355 90 Z" fill="url(#sw)" />
+        </g>
+        <circle cx="225" cy="165" r="150" fill="none" stroke="#F2A93B" strokeOpacity="0.18" />
+        <circle cx="225" cy="165" r="90" fill="none" stroke="#F2A93B" strokeOpacity="0.18" />
+
+        <g>
+          {Object.entries(PINS).map(([city, [x, y]]) => {
+            const hot = hovered === city;
+            return (
+              <g
+                key={city}
+                className="cursor-pointer"
+                onMouseEnter={() => onHoverCity(city)}
+                onMouseLeave={() => onHoverCity(null)}
+              >
+                <circle
+                  cx={x}
+                  cy={y}
+                  r="6"
+                  fill="none"
+                  stroke="var(--color-amber)"
+                  strokeWidth="1.5"
+                  style={hot ? { animation: "ping 1.6s ease-out infinite", transformBox: "fill-box", transformOrigin: "center" } : { opacity: 0 }}
+                />
+                <circle cx={x} cy={y} r="5" fill={hot ? "var(--color-red)" : "var(--color-amber)"} stroke="var(--color-ink)" strokeWidth="2" />
+              </g>
+            );
+          })}
+          {Object.entries(PINS).map(([city, [x, y]]) => (
+            <text
+              key={city}
+              x={LEFT.has(city) ? x - 9 : x + 9}
+              y={y + 3.5}
+              textAnchor={LEFT.has(city) ? "end" : "start"}
+              fontFamily="var(--font-mono)"
+              fontSize="12"
+              fill="#dfe7f5"
+              letterSpacing="0.5"
+              style={{ textTransform: "uppercase" }}
+            >
+              {city}
+            </text>
+          ))}
+        </g>
+
+        {/* HQ */}
+        <g>
+          <circle cx="225" cy="165" r="9" fill="none" stroke="var(--color-red)" strokeWidth="2" style={{ animation: "hq-ping 2.6s ease-out infinite", transformBox: "fill-box", transformOrigin: "center" }} />
+          <circle cx="225" cy="165" r="9" fill="none" stroke="var(--color-red)" strokeWidth="2" style={{ animation: "hq-ping 2.6s ease-out .9s infinite", transformBox: "fill-box", transformOrigin: "center" }} />
+          <rect x="216" y="156" width="18" height="18" fill="var(--color-red)" stroke="var(--color-ink)" strokeWidth="2.5" transform="rotate(45 225 165)" />
+          <text x="238" y="186" fontFamily="var(--font-mono)" fontSize="12" fill="var(--color-amber)" fontWeight={700} letterSpacing="0.5">
+            HQ · 66 MILVAN DR
           </text>
         </g>
-      ))}
-
-      {/* regions */}
-      {REGIONS.map((r) => (
-        <g key={r.name}>
-          <rect
-            x={r.x}
-            y={r.y}
-            width={r.w}
-            height={r.h}
-            rx={10}
-            fill="#2c4061"
-            stroke="#5a7fb5"
-            strokeWidth="1.5"
-          />
-          <text
-            x={r.x + r.w / 2}
-            y={r.y + r.h / 2 + (r.labelY ?? 0)}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fill="#fff"
-            fontFamily="var(--font-display)"
-            fontSize={r.small ? 12 : 14}
-            letterSpacing="0.5"
-            style={{ textTransform: "uppercase" }}
-          >
-            {r.name.length > 14 ? (
-              <>
-                <tspan x={r.x + r.w / 2} dy="-0.5em">
-                  {r.name.split(" ")[0]}
-                </tspan>
-                <tspan x={r.x + r.w / 2} dy="1.1em">
-                  {r.name.split(" ").slice(1).join(" ")}
-                </tspan>
-              </>
-            ) : (
-              r.name
-            )}
-          </text>
-        </g>
-      ))}
-
-      {/* named-no-page dots */}
-      {DOTS.map((d) => (
-        <g key={d.name}>
-          <circle cx={d.x} cy={d.y} r="16" fill="var(--color-amber)" fillOpacity="0.18" stroke="var(--color-amber)" strokeWidth="2" strokeDasharray="4 3" />
-          <circle cx={d.x} cy={d.y} r="4" fill="var(--color-amber)" />
-          <text
-            x={d.labelPos === "left" ? d.x - 22 : d.x}
-            y={d.y - 24}
-            textAnchor={d.labelPos === "left" ? "end" : "middle"}
-            fill="#e8ecf2"
-            fontFamily="var(--font-display)"
-            fontSize="11"
-            letterSpacing="0.5"
-            style={{ textTransform: "uppercase" }}
-          >
-            {d.name}
-          </text>
-        </g>
-      ))}
-
-      {/* downtown marker */}
-      <circle cx="515" cy="520" r="5" fill="#8fb4ff" stroke="#fff" strokeWidth="1.5" />
-
-      <text x="230" y="600" fill="#45536b" fontFamily="var(--font-display)" fontSize="20" letterSpacing="6" transform="rotate(-6 230 600)" style={{ textTransform: "uppercase" }}>
-        Lake Ontario
-      </text>
-    </svg>
+      </svg>
+    </>
   );
 }

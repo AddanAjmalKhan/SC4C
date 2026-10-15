@@ -5,7 +5,7 @@ import { blogPosts } from "@/data/testimonials";
 
 export function Blog() {
   return (
-    <section id="blog" className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-28">
+    <section id="blog" className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-28">
       <Container>
         <Reveal as="div" className="mb-10 sm:mb-14">
           <p className="mb-3.5 inline-flex items-center gap-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-red">

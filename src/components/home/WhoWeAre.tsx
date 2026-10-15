@@ -38,14 +38,14 @@ function Seal({
 
 export function WhoWeAre() {
   return (
-    <section id="about" className="bg-[#171212] py-16 text-white sm:py-20 lg:py-28">
+    <section id="about" className="bg-navy-dark py-16 text-white sm:py-20 lg:py-28">
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal variant="scale" className="relative">
           <span
             aria-hidden="true"
-            className="absolute -bottom-[18px] -right-[18px] -z-10 h-3/5 w-3/5 rounded-[28px] border-2 border-red"
+            className="absolute -bottom-[18px] -right-[18px] -z-10 h-3/5 w-3/5 border-2 border-red"
           />
-          <div className="group relative aspect-square overflow-hidden rounded-[28px] bg-[#261e1e] shadow-[0_50px_100px_-40px_rgba(0,0,0,0.9)]">
+          <div className="group relative aspect-square overflow-hidden border-2 border-ink bg-[#261e1e] shadow-[0_50px_100px_-40px_rgba(0,0,0,0.9)]">
             <Image
               src="https://scrapcars4cash.ca/wp-content/uploads/2026/08/toronto-scrap-car-removal-1024x1024.jpg"
               alt="Scrap Cars 4 Cash tow truck removing a scrap car in Toronto"

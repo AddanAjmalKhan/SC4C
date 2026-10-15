@@ -46,7 +46,7 @@ function Counter({ value, suffix, label, first }: { value: number; suffix: strin
 
 export function Counters() {
   return (
-    <section aria-label="Company numbers" className="bg-navy-darker">
+    <section aria-label="Company numbers" className="bg-ink">
       <Container>
         <div className="grid grid-cols-1 divide-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {counters.map((c, i) => (

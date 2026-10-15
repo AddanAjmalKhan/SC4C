@@ -88,7 +88,7 @@ export function Hero() {
                     Scrap Car
                     <span
                       aria-hidden="true"
-                      className="absolute inset-x-[0.02em] -bottom-[0.04em] h-[0.06em] rounded-full"
+                      className="absolute inset-x-[0.02em] -bottom-[0.04em] h-[0.06em]"
                       style={{
                         background: "linear-gradient(90deg, var(--color-red), var(--color-amber) 60%, rgba(242,169,59,0))",
                         boxShadow: "0 0 18px rgba(242,169,59,.6)",
@@ -127,7 +127,7 @@ export function Hero() {
                 </a>
                 <a
                   href="#top-quote"
-                  className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
+                  className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
                 >
                   Get Quote <Icon name="arrow" className="h-4 w-4" />
                 </a>

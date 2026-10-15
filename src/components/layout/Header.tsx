@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
-import { HazardStripe } from "@/components/ui/HazardStripe";
 import { business } from "@/data/business";
 import { navLinks } from "@/data/nav";
 
@@ -54,7 +53,7 @@ export function Header() {
                 <a
                   href={link.href}
                   aria-current={link.label === "Home" ? "page" : undefined}
-                  className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2.5 font-body text-[14.5px] font-semibold text-white transition-colors hover:text-amber aria-current:text-amber"
+                  className="flex items-center gap-1.5 whitespace-nowrap px-3.5 py-2.5 font-body text-[14.5px] font-semibold text-white transition-colors hover:text-amber aria-current:text-amber"
                 >
                   {link.label}
                   {link.dropdown && (
@@ -64,10 +63,10 @@ export function Header() {
                   )}
                 </a>
                 {link.dropdown && (
-                  <ul className="invisible absolute left-1/2 top-full z-10 min-w-[260px] -translate-x-1/2 translate-y-2 columns-2 gap-0 rounded-2xl border border-white/15 bg-[rgba(26,20,20,0.97)] p-2.5 opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <ul className="invisible absolute left-1/2 top-full z-10 min-w-[260px] -translate-x-1/2 translate-y-2 columns-2 gap-0 border border-white/15 bg-[rgba(26,20,20,0.97)] p-2.5 opacity-0 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                     {link.dropdown.map((item) => (
                       <li key={item}>
-                        <a href="#services" className="block whitespace-nowrap rounded-lg px-3 py-2 text-sm text-white/70 hover:bg-amber/15 hover:text-amber">
+                        <a href="#services" className="block whitespace-nowrap px-3 py-2 text-sm text-white/70 hover:bg-amber/15 hover:text-amber">
                           {item}
                         </a>
                       </li>
@@ -99,7 +98,7 @@ export function Header() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/5 min-[1180px]:hidden"
+            className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/15 bg-white/5 min-[1180px]:hidden"
           >
             <span className="relative flex h-4 w-5 flex-col justify-between">
               <span className={`h-0.5 w-full bg-white transition-transform ${open ? "translate-y-[7px] rotate-45" : ""}`} />
@@ -110,7 +109,13 @@ export function Header() {
         </div>
       </div>
 
-      <HazardStripe thin className="absolute inset-x-0 bottom-0" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[4px] border-y border-ink bg-[length:14px_14px]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(-45deg, var(--color-ink) 0 5px, var(--color-amber) 5px 10px)",
+        }}
+      />
 
       {open && (
         <nav aria-label="Mobile" className="border-t border-white/10 bg-[rgba(18,13,13,0.97)] backdrop-blur-xl min-[1180px]:hidden">
@@ -120,7 +125,7 @@ export function Header() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-2.5 text-white/80 hover:bg-white/10 hover:text-amber"
+                  className="block px-3 py-2.5 text-white/80 hover:bg-white/10 hover:text-amber"
                 >
                   {link.label}
                 </a>

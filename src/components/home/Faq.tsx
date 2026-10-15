@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
-import { business } from "@/data/business";
 import { faqColumns } from "@/data/testimonials";
 
 function FaqItem({ question, answer, index, defaultOpen }: { question: string; answer: string; index: number; defaultOpen?: boolean }) {
@@ -46,7 +44,7 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
 
 export function Faq() {
   return (
-    <section id="faq" className="bg-[#F4F4F4] py-16 sm:py-20 lg:py-28">
+    <section id="faq" className="bg-white py-16 sm:py-20 lg:py-28">
       <Container>
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
@@ -63,15 +61,6 @@ export function Faq() {
             <h2 className="font-display uppercase leading-[1.02] tracking-wide" style={{ fontSize: "clamp(1.875rem, 4.5vw, 3.25rem)" }}>
               Still Need Help?
             </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <a
-              href={business.phoneHref}
-              className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-red px-5 font-body text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(189,20,30,0.8)] transition-transform hover:-translate-y-0.5"
-            >
-              <Icon name="phone" className="h-4 w-4" />
-              Call Now
-            </a>
           </Reveal>
         </div>
 

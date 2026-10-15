@@ -93,7 +93,7 @@ export function Footer() {
                 href={business.facebookHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/[0.16] px-4 py-2.5 text-sm font-bold text-[#F6F1EA] transition-colors hover:border-amber hover:text-amber"
+                className="inline-flex items-center gap-2 border-2 border-white/[0.16] px-4 py-2.5 text-sm font-bold text-[#F6F1EA] transition-colors hover:border-amber hover:text-amber"
               >
                 <Icon name="facebook" className="h-4 w-4" />
                 Facebook
@@ -102,7 +102,7 @@ export function Footer() {
                 href={business.instagramHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/[0.16] px-4 py-2.5 text-sm font-bold text-[#F6F1EA] transition-colors hover:border-amber hover:text-amber"
+                className="inline-flex items-center gap-2 border-2 border-white/[0.16] px-4 py-2.5 text-sm font-bold text-[#F6F1EA] transition-colors hover:border-amber hover:text-amber"
               >
                 <Icon name="instagram" className="h-4 w-4" />
                 Instagram
@@ -118,7 +118,7 @@ export function Footer() {
             title={`Map to ${business.name}, ${business.address}`}
             src={business.mapEmbedSrc}
             referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[340px] w-full rounded-[28px] border-0 bg-[#1e1818] grayscale-[90%] invert-[92%] contrast-[90%] hue-rotate-180"
+            className="block h-[340px] w-full border-0 bg-[#1e1818] grayscale-[90%] invert-[92%] contrast-[90%] hue-rotate-180"
           />
         </div>
 

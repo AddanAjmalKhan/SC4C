@@ -12,11 +12,19 @@ const MAKES = [
 const CONDITIONS = ["Running", "Non-Running", "Accident & Damaged", "Rusted", "Flooded"] as const;
 const SLOTS = ["Same-Day", "Next-Day"] as const;
 
-const STEP_LABELS = ["01 · Vehicle", "02 · Condition", "03 · Pickup"];
+const STEP_LABELS = ["01 · Vehicle", "02 · Pickup"];
+const TOTAL_STEPS = 2;
 
 const fieldClass =
   "w-full rounded-none border-2 border-ink bg-white px-3 py-2 font-body text-[15px] font-semibold text-ink outline-none focus:border-navy";
 const labelClass = "mb-1 block font-mono text-xs font-bold uppercase tracking-wide text-grey";
+const selectStyle = {
+  backgroundImage:
+    "linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%)",
+  backgroundPosition: "calc(100% - 18px) 50%, calc(100% - 12px) 50%",
+  backgroundSize: "6px 6px",
+  backgroundRepeat: "no-repeat",
+} as const;
 
 function buildTicketNumber() {
   const n = Math.floor(1000 + Math.random() * 9000);
@@ -50,16 +58,12 @@ export function QuoteTicket() {
   const { no: ticketNo, today, years } = ticket;
 
   function goNext() {
-    if (step === 1 && (!year || !make || !model)) {
-      setError("Please fill in year, make, and model.");
-      return;
-    }
-    if (step === 2 && !condition) {
-      setError("Please select your vehicle's condition.");
+    if (step === 1 && (!year || !make || !model || !condition)) {
+      setError("Please fill in year, make, model, and condition.");
       return;
     }
     setError("");
-    setStep((s) => Math.min(3, s + 1));
+    setStep((s) => Math.min(TOTAL_STEPS, s + 1));
   }
 
   function goBack() {
@@ -103,7 +107,7 @@ export function QuoteTicket() {
           mask: "radial-gradient(circle 7px at 50% 0, #0000 98%, #000) 0 0/20px 51% repeat-x, radial-gradient(circle 7px at 50% 100%, #0000 98%, #000) 0 100%/20px 51% repeat-x",
         }}
       >
-        {step === 3 && (
+        {step === TOTAL_STEPS && (
           <div
             aria-hidden="true"
             className="absolute bottom-16 right-5 border-[3px] border-red px-2.5 py-0.5 font-display text-lg font-black uppercase tracking-wide text-red"
@@ -139,7 +143,7 @@ export function QuoteTicket() {
             aria-hidden="true"
             className="h-full bg-[length:22px_22px] transition-[width] duration-400"
             style={{
-              width: `${(step / 3) * 100}%`,
+              width: `${(step / TOTAL_STEPS) * 100}%`,
               backgroundImage: "repeating-linear-gradient(-45deg, var(--color-ink) 0 7px, var(--color-amber) 7px 14px)",
             }}
           />
@@ -147,30 +151,7 @@ export function QuoteTicket() {
 
         {step === 1 && (
           <fieldset className="mt-3 border-0 p-0" style={{ animation: "fade-up .35s ease" }}>
-            <legend className="mb-2 font-display text-lg font-extrabold uppercase">Year / Make / Model</legend>
-            <label className="mb-2.5 block">
-              <span className={labelClass}>Year</span>
-              <select
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-                required
-                className={`${fieldClass} appearance-none`}
-                style={{
-                  backgroundImage:
-                    "linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%)",
-                  backgroundPosition: "calc(100% - 18px) 50%, calc(100% - 12px) 50%",
-                  backgroundSize: "6px 6px",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <option value="">Year</option>
-                {years.map((y) => (
-                  <option key={y} value={y}>
-                    {y}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <legend className="mb-2 font-display text-lg font-extrabold uppercase">Vehicle &amp; Condition</legend>
             <div className="grid grid-cols-2 gap-2.5">
               <label className="block">
                 <span className={labelClass}>Make</span>
@@ -195,32 +176,44 @@ export function QuoteTicket() {
                   className={fieldClass}
                 />
               </label>
+              <label className="block">
+                <span className={labelClass}>Year</span>
+                <select
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  required
+                  className={`${fieldClass} appearance-none`}
+                  style={selectStyle}
+                >
+                  <option value="">Year</option>
+                  {years.map((y) => (
+                    <option key={y} value={y}>
+                      {y}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="block">
+                <span className={labelClass}>Phone</span>
+                <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  type="tel"
+                  placeholder="Phone"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  className={fieldClass}
+                />
+              </label>
             </div>
-            <datalist id="makes">
-              {MAKES.map((m) => (
-                <option key={m} value={m} />
-              ))}
-            </datalist>
-          </fieldset>
-        )}
-
-        {step === 2 && (
-          <fieldset className="mt-3 border-0 p-0" style={{ animation: "fade-up .35s ease" }}>
-            <legend className="mb-2 font-display text-lg font-extrabold uppercase">Condition</legend>
-            <label className="block">
+            <label className="mt-2.5 block">
               <span className={labelClass}>Condition</span>
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
                 required
                 className={`${fieldClass} appearance-none`}
-                style={{
-                  backgroundImage:
-                    "linear-gradient(45deg, transparent 50%, var(--color-ink) 50%), linear-gradient(135deg, var(--color-ink) 50%, transparent 50%)",
-                  backgroundPosition: "calc(100% - 18px) 50%, calc(100% - 12px) 50%",
-                  backgroundSize: "6px 6px",
-                  backgroundRepeat: "no-repeat",
-                }}
+                style={selectStyle}
               >
                 <option value="">Select condition</option>
                 {CONDITIONS.map((c) => (
@@ -230,10 +223,15 @@ export function QuoteTicket() {
                 ))}
               </select>
             </label>
+            <datalist id="makes">
+              {MAKES.map((m) => (
+                <option key={m} value={m} />
+              ))}
+            </datalist>
           </fieldset>
         )}
 
-        {step === 3 && (
+        {step === 2 && (
           <fieldset className="mt-3 border-0 p-0" style={{ animation: "fade-up .35s ease" }}>
             <legend className="mb-2 font-display text-lg font-extrabold uppercase">Book Your Pickup Time</legend>
             <label className="block">
@@ -256,7 +254,7 @@ export function QuoteTicket() {
                   type="button"
                   aria-pressed={slot === s}
                   onClick={() => setSlot(s)}
-                  className={`rounded-xl border-2 border-ink px-3.5 py-2.5 text-center font-display text-base font-bold uppercase tracking-wide transition-colors ${
+                  className={`border-2 border-ink px-3.5 py-2.5 text-center font-display text-base font-bold uppercase tracking-wide transition-colors ${
                     slot === s ? "bg-navy text-white shadow-[0_8px_20px_-6px_rgba(242,169,59,0.6)]" : "bg-white text-ink hover:bg-[#FFF3DE]"
                   }`}
                 >
@@ -281,7 +279,7 @@ export function QuoteTicket() {
               Back
             </button>
           )}
-          {step < 3 ? (
+          {step < TOTAL_STEPS ? (
             <button
               type="button"
               onClick={goNext}

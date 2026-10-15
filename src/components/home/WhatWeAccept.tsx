@@ -28,9 +28,12 @@ export function WhatWeAccept() {
           </p>
         </Reveal>
 
-        <Reveal variant="scale" className="grid grid-cols-1 gap-[3px] border-[3px] border-ink bg-ink sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal variant="scale" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {acceptedVehicles.map((item) => (
-            <div key={item.letter} className="grid grid-cols-[96px_1fr] items-center gap-5 bg-white p-[30px_28px] transition-colors hover:bg-[#FFF6E6]">
+            <div
+              key={item.letter}
+              className="grid grid-cols-[96px_1fr] items-center gap-5 border-[3px] border-ink bg-white p-[30px_28px] transition-colors hover:bg-[#FFF6E6]"
+            >
               <div className="relative grid h-[72px] w-24 place-items-center border-2 border-ink bg-[#F4F4F4]">
                 <VehicleIcon name={item.vehicle} className="h-[50px] w-20 text-ink" />
                 <span
@@ -51,7 +54,7 @@ export function WhatWeAccept() {
 
         <Reveal
           delay={1}
-          className="mt-14 flex flex-wrap items-center justify-between gap-5 rounded-full border border-ink/10 bg-[linear-gradient(90deg,rgba(189,20,30,.08),rgba(13,63,130,.08))] px-6 py-5 sm:px-8"
+          className="mt-14 flex flex-wrap items-center justify-between gap-5 border border-ink/10 bg-[linear-gradient(90deg,rgba(189,20,30,.08),rgba(13,63,130,.08))] px-6 py-5 sm:px-8"
         >
           <div className="flex items-center gap-4 font-display text-2xl sm:text-3xl">
             <Icon name="phone" className="h-7 w-7 shrink-0 text-red" />

@@ -25,7 +25,7 @@ export function TopBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="grid h-7 w-7 place-items-center rounded-full text-white hover:bg-white/10"
+            className="grid h-7 w-7 place-items-center text-white hover:bg-white/10"
           >
             <Icon name="facebook" className="h-4 w-4" />
           </a>
@@ -34,7 +34,7 @@ export function TopBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="grid h-7 w-7 place-items-center rounded-full text-white hover:bg-white/10"
+            className="grid h-7 w-7 place-items-center text-white hover:bg-white/10"
           >
             <Icon name="whatsapp" className="h-4 w-4" />
           </a>
@@ -43,7 +43,7 @@ export function TopBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="grid h-7 w-7 place-items-center rounded-full text-white hover:bg-white/10"
+            className="grid h-7 w-7 place-items-center text-white hover:bg-white/10"
           >
             <Icon name="instagram" className="h-4 w-4" />
           </a>
