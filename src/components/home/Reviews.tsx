@@ -27,7 +27,7 @@ function ReviewCard({ t, index }: { t: (typeof testimonials)[number]; index: num
               {t.initial}
             </span>
             <div className="min-w-0">
-              <p className="truncate font-display text-sm font-bold">{t.name}</p>
+              <p className="truncate font-display text-sm font-bold text-ink">{t.name}</p>
               <p className="flex items-center gap-1 text-xs text-grey">
                 <GoogleIcon className="h-3 w-3" />
                 Posted on Google
@@ -77,7 +77,7 @@ export function Reviews() {
               Rated <b className="text-ink">5</b> out of 5 — Based on <b className="text-ink">9 reviews</b>
             </p>
             <div className="mt-4 flex items-center justify-between border-t border-ink/10 pt-4">
-              <span className="flex items-center gap-2 font-display text-sm font-bold">
+              <span className="flex items-center gap-2 font-display text-sm font-bold text-ink">
                 <GoogleIcon className="h-5 w-5" />
                 Google
               </span>
