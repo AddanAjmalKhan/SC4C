@@ -19,7 +19,7 @@ export function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="gallery" className="bg-navy-dark py-16 text-white sm:py-20 lg:py-28">
+    <section id="gallery" className="bg-navy py-16 text-white sm:py-20 lg:py-28">
       <Container>
         <Reveal as="div" className="mb-10">
           <p className="font-display text-sm font-bold uppercase tracking-wide text-red">08 / Gallery</p>

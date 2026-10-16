@@ -7,7 +7,7 @@ import { pricingFactors } from "@/data/services";
 
 export function Pricing() {
   return (
-    <section id="pricing" className="bg-navy-dark py-16 text-[#d5def0] sm:py-20 lg:py-28">
+    <section id="pricing" className="bg-navy py-16 text-[#d5def0] sm:py-20 lg:py-28">
       <Container>
         <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-[clamp(32px,5vw,70px)]">
           <Reveal>

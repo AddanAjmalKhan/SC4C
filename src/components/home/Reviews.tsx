@@ -43,25 +43,26 @@ function ReviewCard({ t, index }: { t: (typeof testimonials)[number]; index: num
         </div>
       </div>
 
-      <span aria-hidden="true" className="absolute -top-1.5 right-6 h-3.5 w-3.5 rounded-full bg-paper" />
-      <span aria-hidden="true" className="absolute -bottom-1.5 left-6 h-3.5 w-3.5 rounded-full bg-paper" />
+      <span aria-hidden="true" className="absolute -top-1.5 right-6 h-3.5 w-3.5 rounded-full bg-ink" />
+      <span aria-hidden="true" className="absolute -bottom-1.5 left-6 h-3.5 w-3.5 rounded-full bg-ink" />
     </li>
   );
 }
 
 export function Reviews() {
   return (
-    <section id="reviews" className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-28">
+    <section id="reviews" className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-28">
       <Container>
         <div className="grid items-end gap-10 lg:grid-cols-[1.4fr_0.8fr]">
           <Reveal>
-            <p className="font-display text-sm font-bold uppercase tracking-wide text-red">09 / Reviews</p>
-            <h2 className="mt-2 font-display text-3xl font-extrabold sm:text-4xl">
+            <p className="font-display text-sm font-bold uppercase tracking-wide text-amber">09 / Reviews</p>
+            <h2 className="mt-2 font-display text-3xl font-extrabold text-white sm:text-4xl">
               What Our Clients Say About Our Scrap Car Removal In The GTA?
             </h2>
-            <p className="mt-4 text-grey">
-              Our customers trust us for <strong>reliable</strong>, <strong>fast</strong>, and{" "}
-              <strong>hassle-free scrap car removal</strong>. Here&apos;s what they have to say.
+            <p className="mt-4 text-white/70">
+              Our customers trust us for <strong className="text-white">reliable</strong>,{" "}
+              <strong className="text-white">fast</strong>, and{" "}
+              <strong className="text-white">hassle-free scrap car removal</strong>. Here&apos;s what they have to say.
             </p>
           </Reveal>
 

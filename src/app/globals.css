@@ -3,6 +3,7 @@
 :root {
   --color-paper: #f5f3ef;
   --color-paper-2: #ece8e1;
+  --color-cream: #e9dfc8;
   --color-ink: #171212;
   --color-grey: #414042;
   --color-navy: #0d3f82;
@@ -16,6 +17,7 @@
 @theme inline {
   --color-paper: var(--color-paper);
   --color-paper-2: var(--color-paper-2);
+  --color-cream: var(--color-cream);
   --color-ink: var(--color-ink);
   --color-grey: var(--color-grey);
   --color-navy: var(--color-navy);

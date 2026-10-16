@@ -10,7 +10,7 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
 
   return (
     <div className="relative mt-[18px] first:mt-3.5">
-      <span className="absolute -top-6 left-0 border-2 border-b-0 border-ink bg-[#E9DFC8] px-4 pt-1 font-mono text-xs font-bold tracking-wide text-ink" style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%)" }}>
+      <span className="absolute -top-6 left-0 border-2 border-b-0 border-ink bg-cream px-4 pt-1 font-mono text-xs font-bold tracking-wide text-ink" style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%)" }}>
         TAB {String(index + 1).padStart(2, "0")}
       </span>
       <button
@@ -18,7 +18,7 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         className={`relative flex w-full items-center justify-between gap-4 border-2 px-5 py-[18px] pr-[60px] text-left font-display text-[19px] font-extrabold uppercase leading-[1.15] transition-colors ${
-          open ? "border-ink bg-navy text-white" : "border-ink bg-[#E9DFC8] text-ink hover:bg-[#F2E6CB]"
+          open ? "border-ink bg-navy text-white" : "border-ink bg-cream text-ink hover:bg-[#F2E6CB]"
         }`}
       >
         {question}
@@ -44,7 +44,7 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
 
 export function Faq() {
   return (
-    <section id="faq" className="bg-white py-16 sm:py-20 lg:py-28">
+    <section id="faq" className="bg-cream py-16 sm:py-20 lg:py-28">
       <Container>
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
@@ -58,7 +58,7 @@ export function Faq() {
               />
               FAQ
             </p>
-            <h2 className="font-display uppercase leading-[1.02] tracking-wide" style={{ fontSize: "clamp(1.875rem, 4.5vw, 3.25rem)" }}>
+            <h2 className="font-display uppercase leading-[1.02] tracking-wide text-ink" style={{ fontSize: "clamp(1.875rem, 4.5vw, 3.25rem)" }}>
               Still Need Help?
             </h2>
           </Reveal>

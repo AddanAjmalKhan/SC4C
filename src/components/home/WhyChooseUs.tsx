@@ -8,7 +8,7 @@ import { whyChooseUs } from "@/data/services";
 
 export function WhyChooseUs() {
   return (
-    <section id="why" className="bg-paper py-16 sm:py-20 lg:py-28">
+    <section id="why" className="bg-cream py-16 sm:py-20 lg:py-28">
       <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-[clamp(36px,6vw,84px)]">
         <div className="order-1">
           <Reveal>

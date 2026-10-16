@@ -7,10 +7,10 @@ import { acceptedVehicles } from "@/data/services";
 
 export function WhatWeAccept() {
   return (
-    <section id="accept" className="bg-white py-16 sm:py-20 lg:py-28">
+    <section id="accept" className="bg-ink py-16 text-white sm:py-20 lg:py-28">
       <Container>
         <Reveal as="div" className="mb-10 sm:mb-14">
-          <p className="mb-3.5 inline-flex items-center gap-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-red">
+          <p className="mb-3.5 inline-flex items-center gap-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-amber">
             <span
               aria-hidden="true"
               className="h-2.5 w-[22px] border border-ink bg-[length:22px_22px]"
@@ -23,7 +23,7 @@ export function WhatWeAccept() {
           <h2 className="font-display uppercase leading-[1.02] tracking-wide" style={{ fontSize: "clamp(1.875rem, 4.5vw, 3.25rem)" }}>
             Vehicles We Buy, in Any Condition
           </h2>
-          <p className="mt-3.5 max-w-xl text-[17px] text-grey">
+          <p className="mt-3.5 max-w-xl text-[17px] text-white/70">
             Running, non-running, rusted, flooded, or totaled, if it has four wheels, we&apos;ll make an offer.
           </p>
         </Reveal>
@@ -54,10 +54,10 @@ export function WhatWeAccept() {
 
         <Reveal
           delay={1}
-          className="mt-14 flex flex-wrap items-center justify-between gap-5 border border-ink/10 bg-[linear-gradient(90deg,rgba(189,20,30,.08),rgba(13,63,130,.08))] px-6 py-5 sm:px-8"
+          className="mt-14 flex flex-wrap items-center justify-between gap-5 border border-white/10 bg-[linear-gradient(90deg,rgba(189,20,30,.18),rgba(13,63,130,.18))] px-6 py-5 sm:px-8"
         >
-          <div className="flex items-center gap-4 font-display text-2xl sm:text-3xl">
-            <Icon name="phone" className="h-7 w-7 shrink-0 text-red" />
+          <div className="flex items-center gap-4 font-display text-2xl text-white sm:text-3xl">
+            <Icon name="phone" className="h-7 w-7 shrink-0 text-amber" />
             <a href={business.phoneHref}>{business.phone}</a>
           </div>
           <div className="flex gap-2.5">

@@ -38,7 +38,7 @@ function Seal({
 
 export function WhoWeAre() {
   return (
-    <section id="about" className="bg-navy-dark py-16 text-white sm:py-20 lg:py-28">
+    <section id="about" className="bg-navy py-16 text-white sm:py-20 lg:py-28">
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal variant="scale" className="relative">
           <span

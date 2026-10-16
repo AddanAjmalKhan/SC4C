@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${anton.variable} ${sairaCondensed.variable} ${sarabun.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink font-body">
+      <body className="min-h-full flex flex-col bg-cream text-ink font-body">
         {children}
       </body>
     </html>
