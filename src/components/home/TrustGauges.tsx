@@ -65,13 +65,15 @@ export function TrustGauges() {
 
   return (
     <section ref={ref} aria-label="Why customers trust us" className="border-b-[3px] border-ink bg-ink">
-      <Container className="grid grid-cols-2 lg:grid-cols-4">
+      <Container className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {GAUGES.map((g, i) => (
           <div
             key={g.title}
-            className={`flex items-center gap-4 border-[#2c2626] px-5 py-6 ${
-              i % 2 === 0 ? "border-r-2" : "border-r-0 lg:border-r-2"
-            } ${i < 2 ? "border-b-2 lg:border-b-0" : ""} ${i === GAUGES.length - 1 ? "lg:border-r-0" : ""}`}
+            className={`flex items-center gap-3 border-[#2c2626] px-5 py-5 sm:gap-4 sm:py-6 ${
+              i !== GAUGES.length - 1 ? "border-b-2 sm:border-b-0" : ""
+            } ${i % 2 === 0 ? "sm:border-r-2" : "sm:border-r-0 lg:border-r-2"} ${
+              i < 2 ? "sm:border-b-2 lg:border-b-0" : ""
+            } ${i === GAUGES.length - 1 ? "lg:border-r-0" : ""}`}
           >
             <Dial color={g.color} rotation={g.rotation} label={g.label} active={active} />
             <div>

@@ -44,31 +44,33 @@ export function Pricing() {
               <b className="font-bold">Scale Ticket</b>
               <span className="text-[#6b6556]">Weigh Station · 66 Milvan Dr</span>
             </div>
-            <table className="mt-1.5 w-full border-collapse text-left">
-              <thead>
-                <tr>
-                  <th scope="col" className="border-b-2 border-ink px-2 py-3 font-mono text-xs uppercase tracking-wide text-navy">
-                    Factor
-                  </th>
-                  <th scope="col" className="border-b-2 border-ink px-2 py-3 font-mono text-xs uppercase tracking-wide text-navy">
-                    How It Affects Your Offer
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricingFactors.map((row) => (
-                  <tr key={row.code}>
-                    <td className="whitespace-nowrap border-b border-dashed border-[#b9b2a2] px-2 py-[15px] pr-[18px] align-top font-mono text-[13px] font-bold">
-                      <i aria-hidden="true" className="mr-2 not-italic text-red">
-                        {row.code}
-                      </i>
-                      {row.title}
-                    </td>
-                    <td className="border-b border-dashed border-[#b9b2a2] px-2 py-[15px] align-top text-[14.5px] text-grey">{row.body}</td>
+            <div className="-mx-1 overflow-x-auto">
+              <table className="mt-1.5 w-full min-w-[420px] border-collapse text-left">
+                <thead>
+                  <tr>
+                    <th scope="col" className="border-b-2 border-ink px-2 py-3 font-mono text-xs uppercase tracking-wide text-navy">
+                      Factor
+                    </th>
+                    <th scope="col" className="border-b-2 border-ink px-2 py-3 font-mono text-xs uppercase tracking-wide text-navy">
+                      How It Affects Your Offer
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {pricingFactors.map((row) => (
+                    <tr key={row.code}>
+                      <td className="whitespace-nowrap border-b border-dashed border-[#b9b2a2] px-2 py-[15px] pr-[18px] align-top font-mono text-[13px] font-bold">
+                        <i aria-hidden="true" className="mr-2 not-italic text-red">
+                          {row.code}
+                        </i>
+                        {row.title}
+                      </td>
+                      <td className="border-b border-dashed border-[#b9b2a2] px-2 py-[15px] align-top text-[14.5px] text-grey">{row.body}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </Reveal>
         </div>
 
