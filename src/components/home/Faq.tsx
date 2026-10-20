@@ -17,7 +17,7 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className={`relative flex w-full items-center justify-between gap-4 border-2 px-5 py-[18px] pr-[60px] text-left font-display text-[19px] font-extrabold uppercase leading-[1.15] transition-colors ${
+        className={`relative flex w-full items-center justify-between gap-4 border-2 px-5 py-[18px] pr-[60px] text-left font-condensed text-[18px] font-bold leading-snug tracking-wide transition-colors ${
           open ? "border-ink bg-navy text-white" : "border-ink bg-cream text-ink hover:bg-[#F2E6CB]"
         }`}
       >

@@ -51,7 +51,7 @@ export function Hero() {
         }}
       />
 
-      <div className="flex min-h-0 flex-1 items-center overflow-y-auto py-3">
+      <div className="flex min-h-0 flex-1 items-start overflow-y-auto py-3 sm:items-center">
         <Container>
           <div className="grid items-center gap-6 lg:grid-cols-[1.35fr_0.8fr] lg:gap-10">
             <div>
@@ -125,21 +125,23 @@ export function Hero() {
                   <Icon name="phone" className="h-4 w-4" />
                   Call Now <span className="font-extrabold tracking-wide">· {business.phone}</span>
                 </a>
-                <a
-                  href="#top-quote"
-                  className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
-                >
-                  Get Quote <Icon name="arrow" className="h-4 w-4" />
-                </a>
-                <a
-                  href={business.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
-                >
-                  <Icon name="whatsapp" className="h-5 w-5" />
-                </a>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="#top-quote"
+                    className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
+                  >
+                    Get Quote <Icon name="arrow" className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={business.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
+                  >
+                    <Icon name="whatsapp" className="h-5 w-5" />
+                  </a>
+                </div>
               </div>
             </div>
 
