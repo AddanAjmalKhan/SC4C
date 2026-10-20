@@ -32,11 +32,16 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
   cursor: url("/cursor-crosshair.svg") 20 20, auto;
+  overflow-x: hidden;
 }
 
 input,

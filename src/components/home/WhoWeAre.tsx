@@ -20,7 +20,7 @@ function Seal({
 }) {
   return (
     <div
-      className={`absolute z-[2] grid h-[132px] w-[132px] place-items-center rounded-full border-4 p-[22px] text-center font-display text-[14.5px] font-black uppercase leading-none tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] ${className}`}
+      className={`absolute z-[2] grid h-[92px] w-[92px] place-items-center rounded-full border-4 p-4 text-center font-display text-[11px] font-black uppercase leading-none tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] sm:h-[132px] sm:w-[132px] sm:p-[22px] sm:text-[14.5px] ${className}`}
       style={{ background: bg, color, borderColor: color, outline: `2px dashed ${color}`, outlineOffset: "-12px", transform: `rotate(${rotate})` }}
     >
       <span
@@ -29,7 +29,7 @@ function Seal({
         style={{ border: `2px dashed ${color}`, animation: "spin-slow 18s linear infinite" }}
       />
       <span className="relative">
-        <b className="block text-[31px] tracking-wide">24/7</b>
+        <b className="block text-[22px] tracking-wide sm:text-[31px]">24/7</b>
         {label}
       </span>
     </div>
@@ -60,8 +60,20 @@ export function WhoWeAre() {
             />
           </div>
 
-          <Seal className="-bottom-[34px] -left-[34px]" rotate="-12deg" bg="var(--color-red)" color="#fff" label="Scrap Car Service" />
-          <Seal className="-right-[28px] -top-[28px]" rotate="9deg" bg="var(--color-amber)" color="var(--color-ink)" label="Assistance" />
+          <Seal
+            className="-bottom-[16px] -left-[10px] sm:-bottom-[34px] sm:-left-[34px]"
+            rotate="-12deg"
+            bg="var(--color-red)"
+            color="#fff"
+            label="Scrap Car Service"
+          />
+          <Seal
+            className="-right-[10px] -top-[16px] sm:-right-[28px] sm:-top-[28px]"
+            rotate="9deg"
+            bg="var(--color-amber)"
+            color="var(--color-ink)"
+            label="Assistance"
+          />
         </Reveal>
 
         <div>
