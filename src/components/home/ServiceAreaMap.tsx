@@ -24,30 +24,6 @@ const PINS: Record<string, [number, number]> = {
 
 const LEFT = new Set(["Brampton", "Bolton", "Burlington", "Oakville", "Mississauga", "Etobicoke", "Vaughan", "Oshawa", "Toronto"]);
 
-// Voronoi tessellation of the pins above, clipped to the 0..600 x 0..400 viewBox,
-// so every city gets its own bordered region (cells meet with no gaps or overlaps).
-const CELLS: Record<string, string> = {
-  Toronto: "265,259.7 263.7,197.2 341,174.9 351,188",
-  Mississauga: "110.6,242.8 171.8,187.2 259.5,315.5 259.8,317.4",
-  Brampton: "184.1,151.8 185.2,154.4 171.8,187.2 110.6,242.8 55.5,255.9 0,248.4 0,109.7",
-  Vaughan: "246.9,84.4 277.3,131.3 246.2,172.3 185.2,154.4 184.1,151.8 197.2,72.7",
-  Markham: "406.1,0 407.9,0 396.3,83.1 340,157 299.4,126.7 321.8,54.9",
-  "Richmond Hill": "321.8,54.9 299.4,126.7 277.3,131.3 246.9,84.4 315.8,55.8",
-  "North York": "341,174.9 263.7,197.2 246.2,172.3 277.3,131.3 299.4,126.7 340,157",
-  Etobicoke: "263.7,197.2 265,259.7 259.5,315.5 171.8,187.2 185.2,154.4 246.2,172.3",
-  Scarborough: "351,188 341,174.9 340,157 396.3,83.1 481.3,310.8",
-  Oakville: "296.7,400 194.3,400 55.5,255.9 110.6,242.8 259.8,317.4",
-  Burlington: "194.3,400 0,400 0,248.4 55.5,255.9",
-  Ajax: "409.5,0 471.3,0 600,367.9 600,381",
-  Pickering: "407.9,0 409.5,0 600,381 600,400 544.8,400 481.3,310.8 396.3,83.1",
-  Whitby: "471.2,0 513.5,0 600,234.9 600,367.9",
-  Oshawa: "513.5,0 600,0 600,234.9",
-  Aurora: "166,0 170.8,0 315.8,55.8 246.9,84.4 197.2,72.7",
-  Newmarket: "170.8,0 406.1,0 321.8,54.9 315.8,55.8",
-  Bolton: "0,0 166,0 197.2,72.7 184.1,151.8 0,109.7",
-  "Downtown Toronto": "544.8,400 296.7,400 259.8,317.4 259.5,315.5 265,259.7 351,188 481.3,310.8",
-};
-
 export const cityNames = Object.keys(PINS);
 
 export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | null; onHoverCity: (city: string | null) => void }) {
@@ -61,7 +37,6 @@ export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | nul
       </div>
       <svg
         viewBox="0 0 600 400"
-        preserveAspectRatio="none"
         role="img"
         aria-label="Stylized dispatch map of Scrap Cars 4 Cash service cities across the GTA"
         className="relative block h-full w-full"
@@ -77,25 +52,6 @@ export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | nul
           </radialGradient>
         </defs>
 
-        <g>
-          {Object.entries(CELLS).map(([city, points], i) => {
-            const hot = hovered === city;
-            return (
-              <polygon
-                key={city}
-                points={points}
-                className="cursor-pointer transition-colors duration-150"
-                fill={hot ? "rgba(242,169,59,0.16)" : i % 2 === 0 ? "rgba(255,255,255,0.028)" : "rgba(255,255,255,0.055)"}
-                stroke={hot ? "var(--color-amber)" : "#4a7ab8"}
-                strokeWidth={hot ? 1.5 : 1}
-                strokeOpacity={hot ? 0.9 : 0.4}
-                onMouseEnter={() => onHoverCity(city)}
-                onMouseLeave={() => onHoverCity(null)}
-              />
-            );
-          })}
-        </g>
-
         <path
           d="M60 400 L100 378 L160 326 L200 268 L255 236 L310 230 L360 214 L405 196 L455 158 L492 142 L532 132 L600 118 L600 400 Z"
           fill="url(#lake)"
@@ -103,7 +59,7 @@ export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | nul
           strokeWidth="2"
           strokeDasharray="6 5"
         />
-        <text x="430" y="248" fontFamily="var(--font-mono)" fontSize="12" fill="#6f8ec2" letterSpacing="3">
+        <text x="470" y="300" fontFamily="var(--font-mono)" fontSize="12" fill="#6f8ec2" letterSpacing="3">
           LAKE ONTARIO
         </text>
 
@@ -175,24 +131,6 @@ export function ServiceAreaMap({ hovered, onHoverCity }: { hovered: string | nul
           </text>
         </g>
       </svg>
-
-      <div
-        aria-hidden="true"
-        className="absolute bottom-3 left-3 z-[2] flex flex-wrap items-center gap-3.5 border border-[#2a3a56] bg-[#0a1a30]/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wide text-[#9fb3d6] backdrop-blur-sm"
-      >
-        <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-2 w-2 rounded-full bg-amber" />
-          Pickup Zone
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-2.5 w-2.5 rotate-45 bg-red" />
-          HQ
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <i className="inline-block h-[2px] w-3.5 bg-[#5a86c7]" />
-          Route
-        </span>
-      </div>
     </>
   );
 }

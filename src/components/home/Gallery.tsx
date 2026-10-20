@@ -22,7 +22,7 @@ export function Gallery() {
     <section id="gallery" className="bg-navy py-16 text-white sm:py-20 lg:py-28">
       <Container>
         <Reveal as="div" className="mb-10">
-          <p className="font-display text-sm font-bold uppercase tracking-wide text-amber">08 / Gallery</p>
+          <p className="font-display text-sm font-bold uppercase tracking-wide text-red">08 / Gallery</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold sm:text-4xl">Our Work</h2>
         </Reveal>
 

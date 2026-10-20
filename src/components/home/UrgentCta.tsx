@@ -44,7 +44,7 @@ export function UrgentCta() {
           <Reveal delay={2} className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href={business.phoneHref}
-              className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-white px-5 font-body text-[15px] font-bold text-ink shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-14 items-center gap-2.5 whitespace-nowrap rounded-full bg-white px-6 font-body text-[15px] font-bold text-ink shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-0.5"
             >
               <Icon name="phone" className="h-4 w-4" />
               Call Now
@@ -53,7 +53,7 @@ export function UrgentCta() {
               href={business.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-[#25D366] px-5 font-body text-[15px] font-bold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
+              className="inline-flex h-14 items-center gap-2.5 whitespace-nowrap rounded-full bg-[#25D366] px-6 font-body text-[15px] font-bold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
             >
               <Icon name="whatsapp" className="h-4 w-4" />
               WhatsApp

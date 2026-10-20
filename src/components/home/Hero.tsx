@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate -mt-[70px] flex min-h-[100svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:pt-[84px]"
+      className="relative isolate -mt-[70px] flex h-[100svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:pt-[84px]"
     >
       {/* Full-bleed background photo, Ken Burns zoom-out */}
       <div aria-hidden="true" className="absolute inset-0 -z-30">
@@ -51,10 +51,10 @@ export function Hero() {
         }}
       />
 
-      <div className="flex flex-1 items-start py-3 sm:items-center">
+      <div className="flex min-h-0 flex-1 items-center overflow-y-auto py-3">
         <Container>
-          <div className="grid items-center gap-9 lg:grid-cols-[1.35fr_0.8fr] lg:gap-10">
-            <div className="lg:col-start-1 lg:row-start-1">
+          <div className="grid items-center gap-6 lg:grid-cols-[1.35fr_0.8fr] lg:gap-10">
+            <div>
               <p
                 className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-amber"
                 style={{ animation: "fade-up 1s both" }}
@@ -117,28 +117,14 @@ export function Hero() {
                 service across Toronto and the GTA.
               </p>
 
-            </div>
-
-            <div
-              id="top-quote"
-              className="flex justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:justify-end"
-              style={{ animation: "fade-up 1s .8s both" }}
-            >
-              <QuoteTicket />
-            </div>
-
-            <div
-              className="flex flex-wrap justify-center gap-3 lg:col-start-1 lg:row-start-2 lg:justify-start"
-              style={{ animation: "fade-up 1s .65s both" }}
-            >
-              <a
-                href={business.phoneHref}
-                className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-red px-5 font-body text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(189,20,30,0.8)] transition-transform hover:-translate-y-0.5 hover:bg-red-dark"
-              >
-                <Icon name="phone" className="h-4 w-4" />
-                Call Now <span className="font-extrabold tracking-wide">· {business.phone}</span>
-              </a>
-              <div className="flex items-center gap-3">
+              <div className="mt-5 flex flex-wrap gap-3" style={{ animation: "fade-up 1s .65s both" }}>
+                <a
+                  href={business.phoneHref}
+                  className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-red px-5 font-body text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(189,20,30,0.8)] transition-transform hover:-translate-y-0.5 hover:bg-red-dark"
+                >
+                  <Icon name="phone" className="h-4 w-4" />
+                  Call Now <span className="font-extrabold tracking-wide">· {business.phone}</span>
+                </a>
                 <a
                   href="#top-quote"
                   className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
@@ -150,11 +136,15 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
-                  className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.8)] transition-transform hover:-translate-y-0.5"
                 >
                   <Icon name="whatsapp" className="h-5 w-5" />
                 </a>
               </div>
+            </div>
+
+            <div id="top-quote" className="flex justify-center lg:justify-end" style={{ animation: "fade-up 1s .8s both" }}>
+              <QuoteTicket />
             </div>
           </div>
         </Container>

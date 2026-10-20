@@ -26,7 +26,7 @@ export function Button({
   return (
     <a
       href={href}
-      className={`inline-flex h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-5 font-body text-[14.5px] font-bold transition-[transform,box-shadow,background,color,border-color] duration-200 hover:-translate-y-0.5 ${VARIANT_CLASSES[variant]} ${className}`}
+      className={`inline-flex h-14 items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-6 font-body text-[14.5px] font-bold transition-[transform,box-shadow,background,color,border-color] duration-200 hover:-translate-y-0.5 ${VARIANT_CLASSES[variant]} ${className}`}
       {...rest}
     >
       {children}

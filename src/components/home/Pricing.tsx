@@ -37,20 +37,15 @@ export function Pricing() {
                 Call Now
               </Button>
             </div>
-
-            <p className="mt-7 text-sm text-[#9fb3d6]">
-              Based on these factors, most vehicles we pick up in the GTA sell for $250 to $2000, with larger trucks
-              and newer write-offs going higher.
-            </p>
           </Reveal>
 
-          <Reveal delay={1} variant="scale" className="relative min-w-0 border-[3px] border-ink bg-[#FFFDF6] p-[26px] pb-[22px] text-ink shadow-[12px_12px_0_rgba(0,0,0,0.4)]">
+          <Reveal delay={1} variant="scale" className="relative border-[3px] border-ink bg-[#FFFDF6] p-[26px] pb-[22px] text-ink shadow-[12px_12px_0_rgba(0,0,0,0.4)]">
             <div className="flex items-end justify-between gap-2.5 border-b-[3px] border-double border-ink pb-3 pt-3.5 font-mono text-xs uppercase tracking-wide">
               <b className="font-bold">Scale Ticket</b>
               <span className="text-[#6b6556]">Weigh Station · 66 Milvan Dr</span>
             </div>
-            <table className="mt-1.5 w-full border-collapse text-left max-sm:block">
-              <thead className="max-sm:hidden">
+            <table className="mt-1.5 w-full border-collapse text-left">
+              <thead>
                 <tr>
                   <th scope="col" className="border-b-2 border-ink px-2 py-3 font-mono text-xs uppercase tracking-wide text-navy">
                     Factor
@@ -60,24 +55,27 @@ export function Pricing() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="max-sm:block">
+              <tbody>
                 {pricingFactors.map((row) => (
-                  <tr key={row.code} className="max-sm:block max-sm:border-b max-sm:border-dashed max-sm:border-[#b9b2a2] max-sm:py-3 max-sm:last:border-b-0">
-                    <td className="whitespace-normal border-b border-dashed border-[#b9b2a2] px-2 py-[15px] pr-[18px] align-top font-mono text-[13px] font-bold sm:whitespace-nowrap max-sm:block max-sm:border-b-0 max-sm:px-0 max-sm:py-0">
+                  <tr key={row.code}>
+                    <td className="whitespace-nowrap border-b border-dashed border-[#b9b2a2] px-2 py-[15px] pr-[18px] align-top font-mono text-[13px] font-bold">
                       <i aria-hidden="true" className="mr-2 not-italic text-red">
                         {row.code}
                       </i>
                       {row.title}
                     </td>
-                    <td className="border-b border-dashed border-[#b9b2a2] px-2 py-[15px] align-top text-[14.5px] text-grey max-sm:mt-1 max-sm:block max-sm:border-b-0 max-sm:px-0 max-sm:py-0">
-                      {row.body}
-                    </td>
+                    <td className="border-b border-dashed border-[#b9b2a2] px-2 py-[15px] align-top text-[14.5px] text-grey">{row.body}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </Reveal>
         </div>
+
+        <p className="mt-7 max-w-3xl text-sm text-[#9fb3d6]">
+          Based on these factors, most vehicles we pick up in the GTA sell for $250 to $2000, with larger trucks
+          and newer write-offs going higher.
+        </p>
       </Container>
     </section>
   );
