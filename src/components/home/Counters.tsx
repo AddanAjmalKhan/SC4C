@@ -34,11 +34,11 @@ function Counter({ value, suffix, label, first }: { value: number; suffix: strin
 
   return (
     <div ref={ref} className={`flex items-center gap-4 px-6 py-5 sm:px-8 ${first ? "" : "border-t border-white/10 sm:border-t-0 sm:border-l"}`}>
-      <span className="font-display text-3xl leading-none text-white sm:text-4xl">
+      <span className="flex h-9 items-center font-display text-3xl leading-none text-white sm:h-10 sm:text-4xl">
         {display}
         <em className="not-italic text-amber">{suffix}</em>
       </span>
-      <span className="h-8 w-px bg-white/10" aria-hidden="true" />
+      <span className="h-8 w-px shrink-0 bg-white/10" aria-hidden="true" />
       <p className="font-mono text-[11px] font-bold uppercase leading-snug tracking-[0.12em] text-white/60">{label}</p>
     </div>
   );
@@ -46,7 +46,7 @@ function Counter({ value, suffix, label, first }: { value: number; suffix: strin
 
 export function Counters() {
   return (
-    <section aria-label="Company numbers" className="bg-ink">
+    <section id="counters" aria-label="Company numbers" className="bg-ink">
       <Container>
         <div className="grid grid-cols-1 divide-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {counters.map((c, i) => (
