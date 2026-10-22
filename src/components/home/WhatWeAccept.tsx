@@ -45,7 +45,7 @@ export function WhatWeAccept() {
                 />
               </div>
               <div>
-                <h3 className="mb-1.5 font-display text-[22px] font-extrabold leading-[1.05] text-ink">{item.title}</h3>
+                <h3 className="mb-1.5 font-condensed text-[19px] font-bold leading-snug text-ink">{item.title}</h3>
                 <p className="text-[14.5px] text-grey">{item.body}</p>
               </div>
             </div>

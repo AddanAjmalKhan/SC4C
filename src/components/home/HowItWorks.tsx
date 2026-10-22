@@ -163,7 +163,7 @@ export function HowItWorks() {
                     style={{ animation: "ico-ping 1.6s ease-out infinite" }}
                   />
                 </div>
-                <h3 className="font-display text-[22.5px] font-extrabold uppercase leading-[1.02]">{step.title}</h3>
+                <h3 className="font-condensed text-[19px] font-bold uppercase leading-snug tracking-wide">{step.title}</h3>
                 <p className="mt-2.5 text-[15px] text-grey">{step.body}</p>
               </li>
             ))}

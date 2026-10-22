@@ -10,6 +10,7 @@ import { navLinks } from "@/data/nav";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     function onScroll() {
@@ -170,14 +171,55 @@ export function Header() {
           <nav aria-label="Mobile" className="flex-1 overflow-y-auto border-t border-white/10 px-4 py-5">
             <ul className="flex flex-col gap-1 font-body text-lg font-semibold">
               {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-3 py-3 text-white/80 hover:bg-white/10 hover:text-amber"
-                  >
-                    {link.label}
-                  </a>
+                <li key={link.href} className="border-b border-white/5 last:border-b-0">
+                  {link.dropdown ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setExpanded((v) => (v === link.label ? null : link.label))}
+                        aria-expanded={expanded === link.label}
+                        className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left text-white/80 transition-colors hover:bg-white/10 hover:text-amber"
+                      >
+                        {link.label}
+                        <svg
+                          viewBox="0 0 10 10"
+                          className={`h-2.5 w-2.5 shrink-0 fill-current transition-transform duration-200 ${
+                            expanded === link.label ? "rotate-180 text-amber" : ""
+                          }`}
+                        >
+                          <path d="M0 3h10L5 8z" />
+                        </svg>
+                      </button>
+                      {expanded === link.label && (
+                        <ul
+                          className="flex flex-col bg-white/[0.04] px-3 font-mono text-sm font-normal"
+                          style={{ animation: "fade-up .3s ease" }}
+                        >
+                          {link.dropdown.map((item) => (
+                            <li key={item} className="border-b border-white/10 last:border-b-0">
+                              <a
+                                href={link.href}
+                                onClick={() => setOpen(false)}
+                                className="flex items-center gap-2.5 py-3 text-white/60 transition-colors hover:text-amber"
+                              >
+                                <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber" />
+                                {item}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={link.label === "Home" ? "page" : undefined}
+                      className="block px-3 py-3 text-white/80 transition-colors hover:bg-white/10 hover:text-amber aria-current:text-amber"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -8,9 +8,10 @@ const EASE = "cubic-bezier(.2,.8,.2,1)";
 
 export function Hero() {
   return (
+    <>
     <section
       id="top"
-      className="relative isolate -mt-[70px] flex min-h-[100svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:pt-[84px]"
+      className="relative isolate -mt-[70px] flex min-h-[90svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:min-h-[100svh] lg:pt-[84px]"
     >
       {/* Full-bleed background photo, Ken Burns zoom-out */}
       <div aria-hidden="true" className="absolute inset-0 -z-30">
@@ -51,7 +52,7 @@ export function Hero() {
         }}
       />
 
-      <div className="flex flex-1 items-start py-3 sm:items-center">
+      <div className="flex flex-1 items-center py-6 sm:py-8 lg:py-3">
         <Container>
           <div className="grid items-center gap-9 lg:grid-cols-[1.35fr_0.8fr] lg:gap-10">
             <div className="lg:col-start-1 lg:row-start-1">
@@ -67,7 +68,7 @@ export function Hero() {
                 Welcome to Scrap Cars 4Cash
               </p>
 
-              <h1 className="mt-3 font-display uppercase leading-[0.93] tracking-wide" style={{ fontSize: "clamp(1.9rem, 4.2vw, 3.6rem)" }}>
+              <h1 className="mt-3 font-display uppercase leading-[0.93] tracking-wide" style={{ fontSize: "clamp(2.15rem, 4.2vw, 3.6rem)" }}>
                 <span className="block overflow-hidden py-[0.04em]">
                   <span
                     className="inline-block"
@@ -121,27 +122,33 @@ export function Hero() {
 
             <div
               id="top-quote"
-              className="flex justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:justify-end"
+              className="hidden justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:flex lg:justify-end"
               style={{ animation: "fade-up 1s .8s both" }}
             >
               <QuoteTicket />
             </div>
 
             <div
-              className="flex flex-wrap justify-center gap-3 lg:col-start-1 lg:row-start-2 lg:justify-start"
+              className="flex flex-col items-stretch gap-3 lg:col-start-1 lg:row-start-2 lg:flex-row lg:flex-wrap lg:items-center lg:justify-start"
               style={{ animation: "fade-up 1s .65s both" }}
             >
               <a
                 href={business.phoneHref}
-                className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full bg-red px-5 font-body text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(189,20,30,0.8)] transition-transform hover:-translate-y-0.5 hover:bg-red-dark"
+                className="inline-flex h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-red px-5 font-body text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(189,20,30,0.8)] transition-transform hover:-translate-y-0.5 hover:bg-red-dark"
               >
                 <Icon name="phone" className="h-4 w-4" />
                 Call Now <span className="font-extrabold tracking-wide">· {business.phone}</span>
               </a>
-              <div className="flex items-center gap-3">
+              <div className="flex w-full items-center gap-3 lg:w-auto">
+                <a
+                  href="#mobile-quote"
+                  className="inline-flex h-12 flex-1 items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber lg:hidden"
+                >
+                  Get Quote <Icon name="arrow" className="h-4 w-4" />
+                </a>
                 <a
                   href="#top-quote"
-                  className="inline-flex h-12 items-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber"
+                  className="hidden h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-white/40 bg-white/[0.03] px-5 font-body text-sm font-bold text-white transition-colors hover:border-amber hover:text-amber lg:inline-flex"
                 >
                   Get Quote <Icon name="arrow" className="h-4 w-4" />
                 </a>
@@ -160,5 +167,30 @@ export function Hero() {
         </Container>
       </div>
     </section>
+
+    <section id="mobile-quote" className="bg-cream py-10 lg:hidden">
+      <Container>
+        <p className="mb-2 inline-flex items-center gap-2.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-red">
+          <span
+            aria-hidden="true"
+            className="h-2.5 w-[22px] border border-ink bg-[length:22px_22px]"
+            style={{
+              backgroundImage: "repeating-linear-gradient(-45deg, var(--color-ink) 0 7px, var(--color-amber) 7px 14px)",
+            }}
+          />
+          Get Your Quote
+        </p>
+        <h2 className="font-display uppercase leading-[1.02] tracking-wide" style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}>
+          See What Your Car Is Worth
+        </h2>
+        <p className="mt-2 max-w-[42ch] text-[15px] text-grey">
+          Prefer to just talk? Call or WhatsApp us instead — or fill out the quick form below.
+        </p>
+        <div className="mt-6 flex justify-center">
+          <QuoteTicket />
+        </div>
+      </Container>
+    </section>
+    </>
   );
 }

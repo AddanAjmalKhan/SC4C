@@ -37,7 +37,7 @@ function GaugeIcon({ icon, color, active }: { icon: "tow" | "cash" | "stack" | "
 
   if (icon === "tow") {
     return (
-      <div className="relative h-9 w-20 shrink-0 sm:h-14 sm:w-32" style={style}>
+      <div className="relative h-9 w-16 shrink-0 sm:h-14 sm:w-32" style={style}>
         <Image src="/towing-car.jpg" alt="" fill sizes="128px" className="object-contain" />
       </div>
     );
@@ -76,13 +76,13 @@ export function TrustGauges() {
         {GAUGES.map((g, i) => (
           <div
             key={g.title}
-            className={`flex items-center gap-2 border-[#2c2626] px-3 py-4 sm:gap-4 sm:px-5 sm:py-6 ${
+            className={`flex items-start gap-2 border-[#2c2626] px-3 py-4 sm:gap-4 sm:px-5 sm:py-6 ${
               i % 2 === 0 ? "border-r-2" : "border-r-0 lg:border-r-2"
             } ${i < 2 ? "border-b-2 lg:border-b-0" : ""} ${i === GAUGES.length - 1 ? "lg:border-r-0" : ""}`}
           >
             <GaugeIcon icon={g.icon} color={g.color} active={active} />
             <div>
-              <h3 className="font-display text-base font-extrabold tracking-wide text-white sm:text-lg lg:text-xl">{g.title}</h3>
+              <h3 className="font-display text-sm font-extrabold tracking-wide text-white sm:text-lg lg:text-xl">{g.title}</h3>
               <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-amber sm:text-xs">{g.subtitle}</p>
             </div>
           </div>

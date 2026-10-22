@@ -46,7 +46,7 @@ export function Blog() {
                 </span>
               </div>
               <div className="flex flex-1 flex-col px-[22px] pb-6 pt-[22px]">
-                <h3 className="mb-2.5 font-display text-[22px] font-extrabold leading-[1.1]">{post.title}</h3>
+                <h3 className="mb-2.5 font-condensed text-[19px] font-bold leading-snug">{post.title}</h3>
                 <p className="flex-1 text-[14.5px] text-grey">{post.body}</p>
                 <span className="mt-4 font-mono text-xs font-bold uppercase tracking-wide text-red transition-transform duration-300 group-hover:translate-x-1.5">
                   Read more →

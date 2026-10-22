@@ -9,32 +9,27 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
   const [open, setOpen] = useState(!!defaultOpen);
 
   return (
-    <div className="relative mt-[18px] first:mt-3.5">
-      <span className="absolute -top-6 left-0 border-2 border-b-0 border-ink bg-cream px-4 pt-1 font-mono text-xs font-bold tracking-wide text-ink" style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%)" }}>
-        TAB {String(index + 1).padStart(2, "0")}
-      </span>
+    <div className="border-b border-ink/10">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className={`relative flex w-full items-center justify-between gap-4 border-2 px-5 py-[18px] pr-[60px] text-left font-condensed text-[18px] font-bold leading-snug tracking-wide transition-colors ${
-          open ? "border-ink bg-navy text-white" : "border-ink bg-cream text-ink hover:bg-[#F2E6CB]"
-        }`}
+        className="flex w-full items-center gap-4 py-[18px] text-left"
       >
-        {question}
+        <span className="shrink-0 font-mono text-xs text-ink/35">{String(index + 1).padStart(2, "0")}</span>
+        <span className={`flex-1 font-condensed text-[17px] font-bold leading-snug transition-colors ${open ? "text-navy" : "text-ink"}`}>
+          {question}
+        </span>
         <span
-          className={`absolute right-4 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center font-mono text-xl font-bold transition-transform duration-300 ${
-            open ? "rotate-45 bg-amber text-ink" : "bg-ink text-amber"
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-mono text-base leading-none transition-all duration-300 ${
+            open ? "rotate-45 border-amber text-amber" : "border-ink/20 text-ink/45"
           }`}
         >
           +
         </span>
       </button>
       {open && (
-        <p
-          className="border-2 border-t-0 border-ink bg-[#FFFDF6] px-5 py-5 text-[15px] text-grey"
-          style={{ animation: "fade-up .35s ease" }}
-        >
+        <p className="ml-9 pb-5 pr-9 text-[15px] leading-relaxed text-grey" style={{ animation: "fade-up .3s ease" }}>
           {answer}
         </p>
       )}
@@ -64,7 +59,7 @@ export function Faq() {
           </Reveal>
         </div>
 
-        <div className="grid gap-x-12 gap-y-9 lg:grid-cols-2">
+        <div className="grid gap-x-12 lg:grid-cols-2">
           {faqColumns.map((column, colIndex) => (
             <Reveal key={colIndex} delay={colIndex as 0 | 1}>
               {column.map((item, i) => (

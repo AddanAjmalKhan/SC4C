@@ -46,7 +46,7 @@ export function Services() {
                 {svc.tag}
               </span>
               <VehicleIcon name={svc.vehicle} className="mb-3.5 h-16 w-16 text-navy transition-transform duration-[450ms] ease-[cubic-bezier(.3,1.4,.5,1)] group-hover:-rotate-6 group-hover:scale-110" />
-              <h3 className="mb-2.5 font-display text-[24.5px] font-extrabold leading-[1.05]">{svc.title}</h3>
+              <h3 className="mb-2.5 font-condensed text-[21px] font-bold leading-snug">{svc.title}</h3>
               <p className="flex-1 text-[15px] text-grey">{svc.body}</p>
               <a
                 href="#top-quote"
