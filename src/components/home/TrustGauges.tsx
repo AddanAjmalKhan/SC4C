@@ -82,7 +82,7 @@ export function TrustGauges() {
           >
             <GaugeIcon icon={g.icon} color={g.color} active={active} />
             <div>
-              <h3 className="font-display text-sm font-extrabold tracking-wide text-white sm:text-lg lg:text-xl">{g.title}</h3>
+              <h3 className="font-condensed text-sm font-bold leading-snug text-white sm:text-lg lg:text-xl">{g.title}</h3>
               <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-amber sm:text-xs">{g.subtitle}</p>
             </div>
           </div>
