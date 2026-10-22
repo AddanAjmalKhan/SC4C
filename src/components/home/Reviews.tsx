@@ -27,7 +27,7 @@ function ReviewCard({ t, index }: { t: (typeof testimonials)[number]; index: num
               {t.initial}
             </span>
             <div className="min-w-0">
-              <p className="truncate font-display text-sm font-bold text-ink">{t.name}</p>
+              <p className="truncate font-body text-sm font-bold text-ink">{t.name}</p>
               <p className="flex items-center gap-1 text-xs text-grey">
                 <GoogleIcon className="h-3 w-3" />
                 Posted on Google
@@ -56,7 +56,7 @@ export function Reviews() {
         <div className="grid items-end gap-10 lg:grid-cols-[1.4fr_0.8fr]">
           <Reveal>
             <p className="font-display text-sm font-bold uppercase tracking-wide text-amber">09 / Reviews</p>
-            <h2 className="mt-2 font-condensed text-2xl font-bold leading-snug text-white sm:text-3xl">
+            <h2 className="mt-2 font-body text-2xl font-bold leading-snug text-white sm:text-3xl">
               What Our Clients Say About Our Scrap Car Removal In The GTA?
             </h2>
             <p className="mt-4 text-white/70">

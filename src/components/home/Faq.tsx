@@ -21,8 +21,8 @@ function FaqItem({ question, answer, index, defaultOpen }: { question: string; a
           {question}
         </span>
         <span
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-mono text-base leading-none transition-all duration-300 ${
-            open ? "rotate-45 border-amber text-amber" : "border-ink/20 text-ink/45"
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 font-mono text-lg font-bold leading-none transition-all duration-300 ${
+            open ? "rotate-45 border-amber text-amber" : "border-ink/60 text-ink/80"
           }`}
         >
           +

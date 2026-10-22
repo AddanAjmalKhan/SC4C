@@ -20,7 +20,7 @@ function Seal({
 }) {
   return (
     <div
-      className={`absolute z-[2] grid h-[92px] w-[92px] place-items-center rounded-full border-4 p-4 text-center font-display text-[11px] font-black uppercase leading-none tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] sm:h-[132px] sm:w-[132px] sm:p-[22px] sm:text-[14.5px] ${className}`}
+      className={`absolute z-[2] grid h-[92px] w-[92px] place-items-center rounded-full border-4 p-4 text-center font-condensed text-[11px] font-bold uppercase leading-none tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] sm:h-[132px] sm:w-[132px] sm:p-[22px] sm:text-[14.5px] ${className}`}
       style={{ background: bg, color, borderColor: color, outline: `2px dashed ${color}`, outlineOffset: "-12px", transform: `rotate(${rotate})` }}
     >
       <span

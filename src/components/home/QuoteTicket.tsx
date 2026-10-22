@@ -151,7 +151,7 @@ export function QuoteTicket() {
 
         {step === 1 && (
           <fieldset className="mt-3 border-0 p-0" style={{ animation: "fade-up .35s ease" }}>
-            <legend className="mb-2 font-display text-lg font-extrabold uppercase">Vehicle &amp; Condition</legend>
+            <legend className="mb-2 font-body text-base font-bold uppercase text-ink">Vehicle &amp; Condition</legend>
             <div className="grid grid-cols-2 gap-2.5">
               <label className="block">
                 <span className={labelClass}>Make</span>
@@ -233,7 +233,7 @@ export function QuoteTicket() {
 
         {step === 2 && (
           <fieldset className="mt-3 border-0 p-0" style={{ animation: "fade-up .35s ease" }}>
-            <legend className="mb-2 font-display text-lg font-extrabold uppercase">Book Your Pickup Time</legend>
+            <legend className="mb-2 font-body text-base font-bold uppercase text-ink">Book Your Pickup Time</legend>
             <label className="block">
               <span className={labelClass}>Phone</span>
               <input
@@ -254,7 +254,7 @@ export function QuoteTicket() {
                   type="button"
                   aria-pressed={slot === s}
                   onClick={() => setSlot(s)}
-                  className={`border-2 border-ink px-3.5 py-2.5 text-center font-display text-base font-bold uppercase tracking-wide transition-colors ${
+                  className={`border-2 border-ink px-3.5 py-2.5 text-center font-body text-[15px] font-bold uppercase tracking-wide transition-colors ${
                     slot === s ? "bg-navy text-white shadow-[0_8px_20px_-6px_rgba(242,169,59,0.6)]" : "bg-white text-ink hover:bg-[#FFF3DE]"
                   }`}
                 >
