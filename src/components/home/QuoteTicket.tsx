@@ -16,7 +16,7 @@ const STEP_LABELS = ["01 · Vehicle", "02 · Pickup"];
 const TOTAL_STEPS = 2;
 
 const fieldClass =
-  "w-full rounded-none border-2 border-ink bg-white px-3 py-2 font-body text-[15px] font-semibold text-ink outline-none focus:border-navy";
+  "w-full rounded-lg border border-ink/25 bg-white px-3 py-2.5 font-body text-[15px] font-semibold text-ink shadow-[inset_0_1px_3px_rgba(0,0,0,0.06)] outline-none transition-[border-color,box-shadow] focus:border-navy focus:shadow-[0_0_0_3px_rgba(13,63,130,0.14)]";
 const labelClass = "mb-1 block font-mono text-xs font-bold uppercase tracking-wide text-grey";
 const selectStyle = {
   backgroundImage:
@@ -31,7 +31,7 @@ function buildTicketNumber() {
   return `SC4C-${n}`;
 }
 
-export function QuoteTicket() {
+export function QuoteTicket({ transparent = false }: { transparent?: boolean }) {
   const [step, setStep] = useState(1);
   const [year, setYear] = useState("");
   const [make, setMake] = useState("");
@@ -99,7 +99,9 @@ export function QuoteTicket() {
       <form
         onSubmit={handleSubmit}
         aria-label="Get Quote"
-        className="relative bg-[#FFFDF6] px-5 pb-5 pt-5 text-ink"
+        className={`relative px-5 pb-5 pt-5 text-ink ${
+          transparent ? "border border-white/50 bg-[#FFFDF6]/70 backdrop-blur-md" : "bg-[#FFFDF6]"
+        }`}
         style={{
           filter: "drop-shadow(10px 14px 0 rgba(0,0,0,0.35))",
           WebkitMask:
@@ -254,8 +256,10 @@ export function QuoteTicket() {
                   type="button"
                   aria-pressed={slot === s}
                   onClick={() => setSlot(s)}
-                  className={`border-2 border-ink px-3.5 py-2.5 text-center font-body text-[15px] font-bold uppercase tracking-wide transition-colors ${
-                    slot === s ? "bg-navy text-white shadow-[0_8px_20px_-6px_rgba(242,169,59,0.6)]" : "bg-white text-ink hover:bg-[#FFF3DE]"
+                  className={`rounded-lg border px-3.5 py-2.5 text-center font-body text-[15px] font-bold uppercase tracking-wide transition-[background-color,box-shadow,border-color] ${
+                    slot === s
+                      ? "border-navy bg-navy text-white shadow-[0_8px_20px_-6px_rgba(242,169,59,0.6)]"
+                      : "border-ink/25 bg-white text-ink shadow-[inset_0_1px_3px_rgba(0,0,0,0.06)] hover:bg-[#FFF3DE]"
                   }`}
                 >
                   {s}

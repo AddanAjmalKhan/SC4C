@@ -141,7 +141,7 @@ export function Hero() {
               className="hidden justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:flex lg:justify-end"
               style={{ animation: "fade-up 1s .8s both" }}
             >
-              <QuoteTicket />
+              <QuoteTicket transparent />
             </div>
 
             <div
