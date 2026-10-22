@@ -11,7 +11,7 @@ export function Hero() {
     <>
     <section
       id="top"
-      className="relative isolate -mt-[70px] flex min-h-[90svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:min-h-[100svh] lg:pt-[84px]"
+      className="relative isolate -mt-[70px] flex min-h-[100svh] flex-col overflow-hidden bg-[#120d0d] pt-[70px] text-white lg:-mt-[84px] lg:pt-[84px]"
     >
       {/* Full-bleed background photo, Ken Burns zoom-out */}
       <div aria-hidden="true" className="absolute inset-0 -z-30">
@@ -69,7 +69,23 @@ export function Hero() {
               </p>
 
               <h1 className="mt-3 font-display uppercase leading-[0.93] tracking-wide" style={{ fontSize: "clamp(2.15rem, 4.2vw, 3.6rem)" }}>
-                <span className="block overflow-hidden py-[0.04em]">
+                <span className="block overflow-hidden py-[0.04em] lg:hidden">
+                  <span
+                    className="inline-block"
+                    style={{ transformOrigin: "0 100%", animation: "h1in 1.25s " + EASE + " both" }}
+                  >
+                    Get Instant Cash
+                  </span>
+                </span>
+                <span className="block overflow-hidden py-[0.04em] lg:hidden">
+                  <span
+                    className="inline-block"
+                    style={{ transformOrigin: "0 100%", animation: "h1in 1.25s .08s " + EASE + " both" }}
+                  >
+                    For Your
+                  </span>
+                </span>
+                <span className="hidden overflow-hidden py-[0.04em] lg:block">
                   <span
                     className="inline-block"
                     style={{ transformOrigin: "0 100%", animation: "h1in 1.25s " + EASE + " both" }}
@@ -82,7 +98,7 @@ export function Hero() {
                     className="relative inline-block text-amber"
                     style={{
                       transformOrigin: "0 100%",
-                      animation: "h1in 1.25s .14s " + EASE + " both, flick 5s 1.6s infinite",
+                      animation: "h1in 1.25s .16s " + EASE + " both, flick 5s 1.6s infinite",
                       textShadow: "0 0 18px rgba(242,169,59,.55), 0 0 60px rgba(242,169,59,.35), 0 0 120px rgba(189,20,30,.35)",
                     }}
                   >
@@ -95,7 +111,7 @@ export function Hero() {
                         boxShadow: "0 0 18px rgba(242,169,59,.6)",
                         transformOrigin: "left",
                         transform: "scaleX(0)",
-                        animation: "line-grow 1.1s 1.15s " + EASE + " forwards",
+                        animation: "line-grow 1.1s 1.25s " + EASE + " forwards",
                       }}
                     />
                   </span>
@@ -103,7 +119,7 @@ export function Hero() {
                 <span className="block overflow-hidden py-[0.04em]">
                   <span
                     className="inline-block max-w-[17ch] text-[0.58em] leading-[1.05] tracking-wide text-white/70"
-                    style={{ transformOrigin: "0 100%", animation: "h1in 1.25s .28s " + EASE + " both" }}
+                    style={{ transformOrigin: "0 100%", animation: "h1in 1.25s .32s " + EASE + " both" }}
                   >
                     — Fast, Easy &amp; <span className="whitespace-nowrap">Same-Day</span> Pickup
                   </span>

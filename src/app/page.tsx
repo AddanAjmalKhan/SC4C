@@ -1,7 +1,6 @@
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { Hero } from "@/components/home/Hero";
 import { Ticker } from "@/components/home/Ticker";
@@ -27,7 +26,7 @@ export default function Home() {
     <>
       <TopBar />
       <Header />
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1">
         <Hero />
         <Ticker />
         <HazardStripe thin />
@@ -50,7 +49,6 @@ export default function Home() {
         <UrgentCta />
       </main>
       <Footer />
-      <MobileStickyBar />
       <WhatsAppFab />
     </>
   );
