@@ -33,7 +33,7 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -41,7 +41,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   cursor: url("/cursor-crosshair.svg") 20 20, auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 input,
