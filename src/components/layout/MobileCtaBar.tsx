@@ -8,16 +8,16 @@ export function MobileCtaBar() {
         href={business.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 bg-ink py-3.5 font-body text-[13px] font-bold uppercase tracking-wide text-white"
+        className="flex items-center justify-center gap-2 bg-[#25D366] py-3.5 font-body text-[13px] font-bold uppercase tracking-wide text-white"
       >
-        <Icon name="whatsapp" className="h-4 w-4 text-[#2BD46A]" />
+        <Icon name="whatsapp" className="h-4 w-4" />
         WhatsApp
       </a>
       <a
         href={business.phoneHref}
-        className="flex items-center justify-center gap-2 border-l border-white/10 bg-ink py-3.5 font-body text-[13px] font-bold uppercase tracking-wide text-white"
+        className="flex items-center justify-center gap-2 bg-red py-3.5 font-body text-[13px] font-bold uppercase tracking-wide text-white"
       >
-        <Icon name="phone" className="h-4 w-4 text-red" />
+        <Icon name="phone" className="h-4 w-4" />
         Call
       </a>
     </div>
