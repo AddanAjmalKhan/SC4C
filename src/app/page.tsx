@@ -1,7 +1,8 @@
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
+import { FloatingCtas } from "@/components/layout/FloatingCtas";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { Hero } from "@/components/home/Hero";
 import { Ticker } from "@/components/home/Ticker";
 import { TrustGauges } from "@/components/home/TrustGauges";
@@ -26,7 +27,7 @@ export default function Home() {
     <>
       <TopBar />
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pb-[54px] lg:pb-0">
         <Hero />
         <Ticker />
         <HazardStripe thin />
@@ -49,7 +50,8 @@ export default function Home() {
         <UrgentCta />
       </main>
       <Footer />
-      <WhatsAppFab />
+      <FloatingCtas />
+      <MobileCtaBar />
     </>
   );
 }
